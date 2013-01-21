@@ -15,7 +15,7 @@ DGTextField
 1. Add DGTextField.h and DGTextField.m to your iOS XCode project.
 2. Import DGTextField.h into the class file where you want to use DGTextField.
 
-    #import "DGTextField.h"
+    <pre>#import "DGTextField.h"</pre>
 
 
 ## CUSTOMIZABLE PROPERTIES ##
