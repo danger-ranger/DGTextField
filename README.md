@@ -14,14 +14,13 @@ DGTextField
 
 1. Add DGTextField.h and DGTextField.m to your iOS XCode project.
 2. Import DGTextField.h into the class file where you want to use DGTextField.
-3. Add the .js files to your `www` folder on disk, and add reference(s) to the .js files using <script> tags in your html file(s)
 
     #import "DGTextField.h"
 
 
 ## CUSTOMIZABLE PROPERTIES ##
 
-DGGeofencing.js contains the following functions:
+DGTextField contains the following functions:
 
 1. cursorColor - Sets the color of the blinking cursor of the DGTextField instance.
 
