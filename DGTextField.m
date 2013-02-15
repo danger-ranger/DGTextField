@@ -8,11 +8,11 @@
 
 #import "DGTextField.h"
 
-@interface CGTextField (Private)
+@interface DGTextField (Private)
 - (void)setup:(CGRect)frame;
 @end
 
-@implementation CGTextField
+@implementation DGTextField
 
 -(id) initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
