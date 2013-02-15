@@ -39,26 +39,32 @@
     // Set up cursor
     cursor_ = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 3.0f, frame.size.height)];
     [self addSubview:cursor_];
-    [cursor_ setBackgroundColor:[UIColor whiteColor]];
+    [cursor_ setBackgroundColor:[UIColor colorWithRed:81.0f/255.0f green:106.0f/255.0f blue:237.0f/255.0f alpha:1.0f]];
     cursor_.hidden = NO;
-    cursor_.alpha = 0.0f;
-    
-    [UIView animateWithDuration:0.5f
-                          delay:0.5f
-                        options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse)
-                     animations:^{
-                                    cursor_.alpha = 1.0f;
-                                }
-                     completion:^(BOOL finished){}];
 }
 
 ////////////////////////////////////////////////////
 // Base Class Overrides
 ////////////////////////////////////////////////////
 
+-(BOOL)becomeFirstResponder {
+    cursor_.alpha = 1.0f;
+    
+    [UIView animateWithDuration:0.5f
+                          delay:0.6f
+                        options:(UIViewAnimationOptionRepeat | UIViewAnimationOptionAutoreverse | UIViewAnimationOptionCurveEaseInOut)
+                     animations:^{
+                         cursor_.alpha = 0.0f;
+                     }
+                     completion:^(BOOL finished){}];
+
+    return [super becomeFirstResponder];
+}
+
 - (CGRect)textRectForBounds:(CGRect)bounds {
     // Hides Cursor when not editing
     cursor_.hidden = YES;
+    [self bringSubviewToFront:cursor_];
     return [super textRectForBounds:bounds];
 }
 
