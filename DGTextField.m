@@ -7,6 +7,7 @@
 //
 
 #import "DGTextField.h"
+#import <QuartzCore/QuartzCore.h>
 
 @interface DGTextField (Private)
 - (void)setup:(CGRect)frame;
@@ -20,6 +21,10 @@
         [self setup:frame];
     }
     return self;
+}
+
+- (void)awakeFromNib {
+    [self setup:self.frame];
 }
 
 - (void) setCursorColor:(UIColor *)cursorColor {
@@ -89,6 +94,15 @@
     CGRect rect = [super caretRectForPosition:position];
     rect.size.width = 0.0f;
     return rect;
+}
+
+-(BOOL)resignFirstResponder {
+    BOOL shouldResign = [super resignFirstResponder];
+    if (shouldResign) {
+        cursor_.alpha = 0.0f;
+        [cursor_.layer removeAllAnimations];
+    }
+    return shouldResign;
 }
 
 @end
