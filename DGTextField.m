@@ -68,7 +68,7 @@
 
 - (CGRect)textRectForBounds:(CGRect)bounds {
     // Hides Cursor when not editing
-    cursor_.hidden = YES;
+    if(!self.editing) cursor_.hidden = YES;
     [self bringSubviewToFront:cursor_];
     return [super textRectForBounds:bounds];
 }
